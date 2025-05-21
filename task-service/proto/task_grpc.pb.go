@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: proto/task.proto
 
-package proto
+package taskpb
 
 import (
 	context "context"

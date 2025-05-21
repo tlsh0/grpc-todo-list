@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	proto "github.com/tlsh0/grpc-todo-list/user-service/proto"
+	proto "github.com/tlsh0/grpc-todo-list/task-service/proto"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
@@ -18,7 +18,7 @@ func main() {
 	}
 	defer conn.Close()
 
-	client := proto.NewUserServiceClient(conn)
+	// client := protoUser.NewUserServiceClient(conn)
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
@@ -43,7 +43,7 @@ func main() {
 	// }
 	// fmt.Println("Login -> JWT Token:", loginResp.Token)
 
-	// task :=
+	task := proto.NewTaskServiceClient(conn)
 
 	// token := `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDc5MDU5OTIsInVzZXJuYW1lIjoidGVzdHVzZXIzIn0.LiO5V8kzkyGuI9qOACADWj1pz8UNXbRb7NFCTQe_Mqo`
 }
