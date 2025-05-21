@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package proto;
+package task;
 
-option go_package = "task-service/proto";
+option go_package = "task-service/proto;taskpb";
 
 service TaskService {
     rpc CreateTask(CreateTaskRequest) returns (TaskResponse);

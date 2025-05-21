@@ -4,7 +4,7 @@
 // 	protoc        v3.12.4
 // source: proto/task.proto
 
-package proto
+package taskpb
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -337,7 +337,7 @@ var File_proto_task_proto protoreflect.FileDescriptor
 
 const file_proto_task_proto_rawDesc = "" +
 	"\n" +
-	"\x10proto/task.proto\x12\x05proto\"a\n" +
+	"\x10proto/task.proto\x12\x04task\"a\n" +
 	"\x11CreateTaskRequest\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x14\n" +
@@ -351,18 +351,20 @@ const file_proto_task_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1c\n" +
-	"\tcompleted\x18\x04 \x01(\bR\tcompleted\"/\n" +
-	"\fTaskResponse\x12\x1f\n" +
-	"\x04task\x18\x01 \x01(\v2\v.proto.TaskR\x04task\"5\n" +
-	"\x10TaskListResponse\x12!\n" +
-	"\x05tasks\x18\x01 \x03(\v2\v.proto.TaskR\x05tasks2\x80\x02\n" +
-	"\vTaskService\x12;\n" +
+	"\tcompleted\x18\x04 \x01(\bR\tcompleted\".\n" +
+	"\fTaskResponse\x12\x1e\n" +
+	"\x04task\x18\x01 \x01(\v2\n" +
+	".task.TaskR\x04task\"4\n" +
+	"\x10TaskListResponse\x12 \n" +
+	"\x05tasks\x18\x01 \x03(\v2\n" +
+	".task.TaskR\x05tasks2\xf8\x01\n" +
+	"\vTaskService\x129\n" +
 	"\n" +
-	"CreateTask\x12\x18.proto.CreateTaskRequest\x1a\x13.proto.TaskResponse\x128\n" +
-	"\tListTasks\x12\x12.proto.UserRequest\x1a\x17.proto.TaskListResponse\x12=\n" +
-	"\fCompleteTask\x12\x18.proto.TaskActionRequest\x1a\x13.proto.TaskResponse\x12;\n" +
+	"CreateTask\x12\x17.task.CreateTaskRequest\x1a\x12.task.TaskResponse\x126\n" +
+	"\tListTasks\x12\x11.task.UserRequest\x1a\x16.task.TaskListResponse\x12;\n" +
+	"\fCompleteTask\x12\x17.task.TaskActionRequest\x1a\x12.task.TaskResponse\x129\n" +
 	"\n" +
-	"DeleteTask\x12\x18.proto.TaskActionRequest\x1a\x13.proto.TaskResponseB\x14Z\x12task-service/protob\x06proto3"
+	"DeleteTask\x12\x17.task.TaskActionRequest\x1a\x12.task.TaskResponseB\x1bZ\x19task-service/proto;taskpbb\x06proto3"
 
 var (
 	file_proto_task_proto_rawDescOnce sync.Once
@@ -378,24 +380,24 @@ func file_proto_task_proto_rawDescGZIP() []byte {
 
 var file_proto_task_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_task_proto_goTypes = []any{
-	(*CreateTaskRequest)(nil), // 0: proto.CreateTaskRequest
-	(*UserRequest)(nil),       // 1: proto.UserRequest
-	(*TaskActionRequest)(nil), // 2: proto.TaskActionRequest
-	(*Task)(nil),              // 3: proto.Task
-	(*TaskResponse)(nil),      // 4: proto.TaskResponse
-	(*TaskListResponse)(nil),  // 5: proto.TaskListResponse
+	(*CreateTaskRequest)(nil), // 0: task.CreateTaskRequest
+	(*UserRequest)(nil),       // 1: task.UserRequest
+	(*TaskActionRequest)(nil), // 2: task.TaskActionRequest
+	(*Task)(nil),              // 3: task.Task
+	(*TaskResponse)(nil),      // 4: task.TaskResponse
+	(*TaskListResponse)(nil),  // 5: task.TaskListResponse
 }
 var file_proto_task_proto_depIdxs = []int32{
-	3, // 0: proto.TaskResponse.task:type_name -> proto.Task
-	3, // 1: proto.TaskListResponse.tasks:type_name -> proto.Task
-	0, // 2: proto.TaskService.CreateTask:input_type -> proto.CreateTaskRequest
-	1, // 3: proto.TaskService.ListTasks:input_type -> proto.UserRequest
-	2, // 4: proto.TaskService.CompleteTask:input_type -> proto.TaskActionRequest
-	2, // 5: proto.TaskService.DeleteTask:input_type -> proto.TaskActionRequest
-	4, // 6: proto.TaskService.CreateTask:output_type -> proto.TaskResponse
-	5, // 7: proto.TaskService.ListTasks:output_type -> proto.TaskListResponse
-	4, // 8: proto.TaskService.CompleteTask:output_type -> proto.TaskResponse
-	4, // 9: proto.TaskService.DeleteTask:output_type -> proto.TaskResponse
+	3, // 0: task.TaskResponse.task:type_name -> task.Task
+	3, // 1: task.TaskListResponse.tasks:type_name -> task.Task
+	0, // 2: task.TaskService.CreateTask:input_type -> task.CreateTaskRequest
+	1, // 3: task.TaskService.ListTasks:input_type -> task.UserRequest
+	2, // 4: task.TaskService.CompleteTask:input_type -> task.TaskActionRequest
+	2, // 5: task.TaskService.DeleteTask:input_type -> task.TaskActionRequest
+	4, // 6: task.TaskService.CreateTask:output_type -> task.TaskResponse
+	5, // 7: task.TaskService.ListTasks:output_type -> task.TaskListResponse
+	4, // 8: task.TaskService.CompleteTask:output_type -> task.TaskResponse
+	4, // 9: task.TaskService.DeleteTask:output_type -> task.TaskResponse
 	6, // [6:10] is the sub-list for method output_type
 	2, // [2:6] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
