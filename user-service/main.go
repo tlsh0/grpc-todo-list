@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	InitDB()
+
 	lis, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
