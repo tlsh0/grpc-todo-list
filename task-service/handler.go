@@ -5,8 +5,9 @@ import (
 	"errors"
 	"log"
 
-	"github.com/golang-jwt/jwt/v5"
 	"github.com/tlsh0/grpc-todo-list/task-service/proto"
+
+	"github.com/golang-jwt/jwt/v5"
 )
 
 type TaskServiceServer struct {
