@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	proto "github.com/tlsh0/grpc-todo-list/user-service/proto"
+	"github.com/tlsh0/grpc-todo-list/user-service/proto"
 	"golang.org/x/crypto/bcrypt"
 
 	"github.com/golang-jwt/jwt/v5"

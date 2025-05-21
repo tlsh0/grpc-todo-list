@@ -4,7 +4,7 @@ import (
 	"log"
 	"net"
 
-	proto "github.com/tlsh0/grpc-todo-list/user-service/proto"
+	"github.com/tlsh0/grpc-todo-list/user-service/proto"
 
 	"google.golang.org/grpc"
 )
