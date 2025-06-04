@@ -4,7 +4,7 @@
 // - protoc             v3.12.4
 // source: proto/task.proto
 
-package proto
+package taskpb
 
 import (
 	context "context"
@@ -32,7 +32,7 @@ type TaskServiceClient interface {
 	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*TaskResponse, error)
 	ListTasks(ctx context.Context, in *UserRequest, opts ...grpc.CallOption) (*TaskListResponse, error)
 	CompleteTask(ctx context.Context, in *TaskActionRequest, opts ...grpc.CallOption) (*TaskResponse, error)
-	DeleteTask(ctx context.Context, in *TaskActionRequest, opts ...grpc.CallOption) (*TaskResponse, error)
+	DeleteTask(ctx context.Context, in *TaskActionRequest, opts ...grpc.CallOption) (*DeleteTaskResponse, error)
 }
 
 type taskServiceClient struct {
@@ -73,9 +73,9 @@ func (c *taskServiceClient) CompleteTask(ctx context.Context, in *TaskActionRequ
 	return out, nil
 }
 
-func (c *taskServiceClient) DeleteTask(ctx context.Context, in *TaskActionRequest, opts ...grpc.CallOption) (*TaskResponse, error) {
+func (c *taskServiceClient) DeleteTask(ctx context.Context, in *TaskActionRequest, opts ...grpc.CallOption) (*DeleteTaskResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TaskResponse)
+	out := new(DeleteTaskResponse)
 	err := c.cc.Invoke(ctx, TaskService_DeleteTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -90,7 +90,7 @@ type TaskServiceServer interface {
 	CreateTask(context.Context, *CreateTaskRequest) (*TaskResponse, error)
 	ListTasks(context.Context, *UserRequest) (*TaskListResponse, error)
 	CompleteTask(context.Context, *TaskActionRequest) (*TaskResponse, error)
-	DeleteTask(context.Context, *TaskActionRequest) (*TaskResponse, error)
+	DeleteTask(context.Context, *TaskActionRequest) (*DeleteTaskResponse, error)
 	mustEmbedUnimplementedTaskServiceServer()
 }
 
@@ -110,7 +110,7 @@ func (UnimplementedTaskServiceServer) ListTasks(context.Context, *UserRequest) (
 func (UnimplementedTaskServiceServer) CompleteTask(context.Context, *TaskActionRequest) (*TaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CompleteTask not implemented")
 }
-func (UnimplementedTaskServiceServer) DeleteTask(context.Context, *TaskActionRequest) (*TaskResponse, error) {
+func (UnimplementedTaskServiceServer) DeleteTask(context.Context, *TaskActionRequest) (*DeleteTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
 }
 func (UnimplementedTaskServiceServer) mustEmbedUnimplementedTaskServiceServer() {}

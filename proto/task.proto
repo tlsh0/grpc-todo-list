@@ -8,7 +8,7 @@ service TaskService {
     rpc CreateTask(CreateTaskRequest) returns (TaskResponse);
     rpc ListTasks(UserRequest) returns (TaskListResponse);
     rpc CompleteTask(TaskActionRequest) returns (TaskResponse);
-    rpc DeleteTask(TaskActionRequest) returns (TaskResponse);
+    rpc DeleteTask(TaskActionRequest) returns (DeleteTaskResponse);
 }
 
 message CreateTaskRequest {
@@ -39,4 +39,8 @@ message TaskResponse {
 
 message TaskListResponse {
     repeated Task tasks = 1;
+}
+
+message DeleteTaskResponse {
+    string message = 1;
 }

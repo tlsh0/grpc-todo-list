@@ -65,3 +65,66 @@ func (s *TaskServiceServer) CreateTask(ctx context.Context, req *proto.CreateTas
 		},
 	}, nil
 }
+
+func (s *TaskServiceServer) ListTasks(ctx context.Context, req *proto.UserRequest) (*proto.TaskListResponse, error) {
+	username, err := parseJWT(req.Token)
+	if err != nil {
+		log.Println("JWT parse error:", err)
+		return nil, err
+	}
+
+	var tasks []Task
+	result := DB.Where("username = ?", username).Find(&tasks)
+	if result.Error != nil {
+		log.Println("DB query error:", result.Error)
+		return nil, result.Error
+	}
+
+	var protoTasks []*proto.Task
+	for _, task := range tasks {
+		protoTasks = append(protoTasks, &proto.Task{
+			Id:          int32(task.ID),
+			Title:       task.Title,
+			Description: task.Description,
+			Completed:   task.Completed,
+		})
+	}
+
+	return &proto.TaskListResponse{Tasks: protoTasks}, nil
+}
+
+func (s *TaskServiceServer) CompleteTask(ctx context.Context, req *proto.TaskActionRequest) (*proto.TaskResponse, error) {
+	username, err := parseJWT(req.Token)
+	if err != nil {
+		log.Println("JWT parse error:", err)
+		return nil, err
+	}
+
+	var task Task
+	result := DB.First(&task, req.Id)
+	if result.Error != nil {
+		log.Println("Task not found:", result.Error)
+		return nil, result.Error
+	}
+
+	if task.Username != username {
+		log.Println("Unauthorized attempt to complete task")
+		return nil, errors.New("unauthorized")
+	}
+
+	task.Completed = true
+	DB.Save(&task)
+
+	return &proto.TaskResponse{
+		Task: &proto.Task{
+			Id:          int32(task.ID),
+			Title:       task.Title,
+			Description: task.Description,
+			Completed:   task.Completed,
+		},
+	}, nil
+}
+
+func (s *TaskServiceServer) DeleteTask(ctx context.Context, req *proto.TaskActionRequest) (*proto.TaskResponse, error) {
+
+}
