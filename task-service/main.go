@@ -1,14 +1,45 @@
 package main
 
 import (
+	"context"
 	"log"
 	"net"
+	"net/http"
+
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 
 	"github.com/tlsh0/grpc-todo-list/task-service/proto"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
 func main() {
+	go startGRPCServer()
+	startHTTPGateway()
+}
+
+func startHTTPGateway() {
+	mux := runtime.NewServeMux()
+
+	opts := []grpc.DialOption{grpc.WithTransportCredentials(insecure.NewCredentials())}
+
+	err := proto.RegisterTaskServiceHandlerFromEndpoint(
+		context.Background(),
+		mux,
+		"localhost:50052", // This is where your gRPC server is running
+		opts,
+	)
+	if err != nil {
+		log.Fatalf("Failed to register gRPC Gateway: %v", err)
+	}
+
+	log.Println("HTTP Gateway listening on :8081")
+	if err := http.ListenAndServe(":8081", mux); err != nil {
+		log.Fatalf("Failed to serve HTTP gateway: %v", err)
+	}
+}
+
+func startGRPCServer() {
 	InitDB()
 
 	lis, err := net.Listen("tcp", ":50052")

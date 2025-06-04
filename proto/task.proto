@@ -2,13 +2,36 @@ syntax = "proto3";
 
 package task;
 
+import "google/api/annotations.proto";
+
 option go_package = "task-service/proto";
 
 service TaskService {
-    rpc CreateTask(CreateTaskRequest) returns (TaskResponse);
-    rpc ListTasks(UserRequest) returns (TaskListResponse);
-    rpc CompleteTask(TaskActionRequest) returns (TaskResponse);
-    rpc DeleteTask(TaskActionRequest) returns (DeleteTaskResponse);
+    rpc CreateTask(CreateTaskRequest) returns (TaskResponse) {
+        option (google.api.http) = {
+            post: "/v1/tasks"
+            body: "*"
+        };
+    };
+
+    rpc ListTasks(UserRequest) returns (TaskListResponse) {
+        option (google.api.http) = {
+            get: "/v1/tasks"
+        };
+    };
+
+    rpc CompleteTask(TaskActionRequest) returns (TaskResponse) {
+        option (google.api.http) = {
+            post: "/v1/tasks/complete"
+            body: "*"
+        };
+    };
+
+    rpc DeleteTask(TaskActionRequest) returns (DeleteTaskResponse) {
+        option (google.api.http) = {
+            delete: "/v1/tasks/{id}"
+        };
+    };
 }
 
 message CreateTaskRequest {
