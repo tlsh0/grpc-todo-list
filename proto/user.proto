@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package user;
 
-option go_package = "user-service/proto;userpb";
+option go_package = "user-service/proto";
 
 service UserService {
     rpc Register(RegisterRequest) returns (AuthResponse);

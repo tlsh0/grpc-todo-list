@@ -125,6 +125,33 @@ func (s *TaskServiceServer) CompleteTask(ctx context.Context, req *proto.TaskAct
 	}, nil
 }
 
-func (s *TaskServiceServer) DeleteTask(ctx context.Context, req *proto.TaskActionRequest) (*proto.TaskResponse, error) {
+func (s *TaskServiceServer) DeleteTask(ctx context.Context, req *proto.TaskActionRequest) (*proto.DeleteTaskResponse, error) {
+	username, err := parseJWT(req.Token)
+	if err != nil {
+		log.Println("JWT parse error:", err)
+		return nil, err
+	}
 
+	var task Task
+	result := DB.First(&task, req.Id)
+	if result.Error != nil {
+		log.Println("Task not found:", result.Error)
+		return nil, result.Error
+	}
+
+	if task.Username != username {
+		log.Println("Unauthorized attempt to complete task")
+		return nil, errors.New("unauthorized")
+	}
+
+	if err := DB.Delete(&task).Error; err != nil {
+		log.Println("Delete error:", err)
+		return nil, err
+	}
+
+	log.Printf("Deleted task ID %d for user %s\n", task.ID, username)
+
+	return &proto.DeleteTaskResponse{
+		Message: "Task deleted succesfully",
+	}, nil
 }
