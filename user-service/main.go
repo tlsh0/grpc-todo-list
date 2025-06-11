@@ -50,7 +50,7 @@ func startGRPCServer() {
 	grpcServer := grpc.NewServer()
 	proto.RegisterUserServiceServer(grpcServer, &UserServer{})
 
-	log.Println("task-service is running on port 50052")
+	log.Println("user-service is running on port 50051")
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
