@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v3.12.4
-// source: common/proto/task.proto
+// source: common/proto/apigateway.proto
 
 package proto
 
@@ -22,6 +22,155 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// user requests - responses
+type RegisterRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RegisterRequest) Reset() {
+	*x = RegisterRequest{}
+	mi := &file_common_proto_apigateway_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RegisterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RegisterRequest) ProtoMessage() {}
+
+func (x *RegisterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_apigateway_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RegisterRequest.ProtoReflect.Descriptor instead.
+func (*RegisterRequest) Descriptor() ([]byte, []int) {
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *RegisterRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *RegisterRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type LoginRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Username      string                 `protobuf:"bytes,1,opt,name=username,proto3" json:"username,omitempty"`
+	Password      string                 `protobuf:"bytes,2,opt,name=password,proto3" json:"password,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *LoginRequest) Reset() {
+	*x = LoginRequest{}
+	mi := &file_common_proto_apigateway_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *LoginRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*LoginRequest) ProtoMessage() {}
+
+func (x *LoginRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_apigateway_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use LoginRequest.ProtoReflect.Descriptor instead.
+func (*LoginRequest) Descriptor() ([]byte, []int) {
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *LoginRequest) GetUsername() string {
+	if x != nil {
+		return x.Username
+	}
+	return ""
+}
+
+func (x *LoginRequest) GetPassword() string {
+	if x != nil {
+		return x.Password
+	}
+	return ""
+}
+
+type AuthResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AuthResponse) Reset() {
+	*x = AuthResponse{}
+	mi := &file_common_proto_apigateway_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AuthResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AuthResponse) ProtoMessage() {}
+
+func (x *AuthResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_apigateway_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AuthResponse.ProtoReflect.Descriptor instead.
+func (*AuthResponse) Descriptor() ([]byte, []int) {
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *AuthResponse) GetToken() string {
+	if x != nil {
+		return x.Token
+	}
+	return ""
+}
+
 // task requests
 type CreateTaskRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -34,7 +183,7 @@ type CreateTaskRequest struct {
 
 func (x *CreateTaskRequest) Reset() {
 	*x = CreateTaskRequest{}
-	mi := &file_common_proto_task_proto_msgTypes[0]
+	mi := &file_common_proto_apigateway_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -46,7 +195,7 @@ func (x *CreateTaskRequest) String() string {
 func (*CreateTaskRequest) ProtoMessage() {}
 
 func (x *CreateTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[0]
+	mi := &file_common_proto_apigateway_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -59,7 +208,7 @@ func (x *CreateTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateTaskRequest.ProtoReflect.Descriptor instead.
 func (*CreateTaskRequest) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{0}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *CreateTaskRequest) GetTitle() string {
@@ -92,7 +241,7 @@ type ListTasksRequest struct {
 
 func (x *ListTasksRequest) Reset() {
 	*x = ListTasksRequest{}
-	mi := &file_common_proto_task_proto_msgTypes[1]
+	mi := &file_common_proto_apigateway_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -104,7 +253,7 @@ func (x *ListTasksRequest) String() string {
 func (*ListTasksRequest) ProtoMessage() {}
 
 func (x *ListTasksRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[1]
+	mi := &file_common_proto_apigateway_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -117,7 +266,7 @@ func (x *ListTasksRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTasksRequest.ProtoReflect.Descriptor instead.
 func (*ListTasksRequest) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{1}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *ListTasksRequest) GetToken() string {
@@ -137,7 +286,7 @@ type CompleteTaskRequest struct {
 
 func (x *CompleteTaskRequest) Reset() {
 	*x = CompleteTaskRequest{}
-	mi := &file_common_proto_task_proto_msgTypes[2]
+	mi := &file_common_proto_apigateway_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -149,7 +298,7 @@ func (x *CompleteTaskRequest) String() string {
 func (*CompleteTaskRequest) ProtoMessage() {}
 
 func (x *CompleteTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[2]
+	mi := &file_common_proto_apigateway_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +311,7 @@ func (x *CompleteTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CompleteTaskRequest.ProtoReflect.Descriptor instead.
 func (*CompleteTaskRequest) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{2}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *CompleteTaskRequest) GetId() int32 {
@@ -189,7 +338,7 @@ type DeleteTaskRequest struct {
 
 func (x *DeleteTaskRequest) Reset() {
 	*x = DeleteTaskRequest{}
-	mi := &file_common_proto_task_proto_msgTypes[3]
+	mi := &file_common_proto_apigateway_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -201,7 +350,7 @@ func (x *DeleteTaskRequest) String() string {
 func (*DeleteTaskRequest) ProtoMessage() {}
 
 func (x *DeleteTaskRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[3]
+	mi := &file_common_proto_apigateway_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -214,7 +363,7 @@ func (x *DeleteTaskRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTaskRequest.ProtoReflect.Descriptor instead.
 func (*DeleteTaskRequest) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{3}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *DeleteTaskRequest) GetId() int32 {
@@ -244,7 +393,7 @@ type Task struct {
 
 func (x *Task) Reset() {
 	*x = Task{}
-	mi := &file_common_proto_task_proto_msgTypes[4]
+	mi := &file_common_proto_apigateway_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -256,7 +405,7 @@ func (x *Task) String() string {
 func (*Task) ProtoMessage() {}
 
 func (x *Task) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[4]
+	mi := &file_common_proto_apigateway_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -269,7 +418,7 @@ func (x *Task) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Task.ProtoReflect.Descriptor instead.
 func (*Task) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{4}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Task) GetId() int32 {
@@ -309,7 +458,7 @@ type TaskResponse struct {
 
 func (x *TaskResponse) Reset() {
 	*x = TaskResponse{}
-	mi := &file_common_proto_task_proto_msgTypes[5]
+	mi := &file_common_proto_apigateway_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -321,7 +470,7 @@ func (x *TaskResponse) String() string {
 func (*TaskResponse) ProtoMessage() {}
 
 func (x *TaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[5]
+	mi := &file_common_proto_apigateway_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -334,7 +483,7 @@ func (x *TaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaskResponse.ProtoReflect.Descriptor instead.
 func (*TaskResponse) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{5}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *TaskResponse) GetTask() *Task {
@@ -353,7 +502,7 @@ type TaskListResponse struct {
 
 func (x *TaskListResponse) Reset() {
 	*x = TaskListResponse{}
-	mi := &file_common_proto_task_proto_msgTypes[6]
+	mi := &file_common_proto_apigateway_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -365,7 +514,7 @@ func (x *TaskListResponse) String() string {
 func (*TaskListResponse) ProtoMessage() {}
 
 func (x *TaskListResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[6]
+	mi := &file_common_proto_apigateway_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -378,7 +527,7 @@ func (x *TaskListResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TaskListResponse.ProtoReflect.Descriptor instead.
 func (*TaskListResponse) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{6}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *TaskListResponse) GetTasks() []*Task {
@@ -397,7 +546,7 @@ type DeleteTaskResponse struct {
 
 func (x *DeleteTaskResponse) Reset() {
 	*x = DeleteTaskResponse{}
-	mi := &file_common_proto_task_proto_msgTypes[7]
+	mi := &file_common_proto_apigateway_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -409,7 +558,7 @@ func (x *DeleteTaskResponse) String() string {
 func (*DeleteTaskResponse) ProtoMessage() {}
 
 func (x *DeleteTaskResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_common_proto_task_proto_msgTypes[7]
+	mi := &file_common_proto_apigateway_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -422,7 +571,7 @@ func (x *DeleteTaskResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTaskResponse.ProtoReflect.Descriptor instead.
 func (*DeleteTaskResponse) Descriptor() ([]byte, []int) {
-	return file_common_proto_task_proto_rawDescGZIP(), []int{7}
+	return file_common_proto_apigateway_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteTaskResponse) GetMessage() string {
@@ -432,11 +581,20 @@ func (x *DeleteTaskResponse) GetMessage() string {
 	return ""
 }
 
-var File_common_proto_task_proto protoreflect.FileDescriptor
+var File_common_proto_apigateway_proto protoreflect.FileDescriptor
 
-const file_common_proto_task_proto_rawDesc = "" +
+const file_common_proto_apigateway_proto_rawDesc = "" +
 	"\n" +
-	"\x17common/proto/task.proto\x12\x04task\x1a\x1cgoogle/api/annotations.proto\"a\n" +
+	"\x1dcommon/proto/apigateway.proto\x12\n" +
+	"apigateway\x1a\x1cgoogle/api/annotations.proto\"I\n" +
+	"\x0fRegisterRequest\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"F\n" +
+	"\fLoginRequest\x12\x1a\n" +
+	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
+	"\bpassword\x18\x02 \x01(\tR\bpassword\"$\n" +
+	"\fAuthResponse\x12\x14\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"a\n" +
 	"\x11CreateTaskRequest\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x14\n" +
@@ -453,84 +611,91 @@ const file_common_proto_task_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x03 \x01(\tR\vdescription\x12\x1c\n" +
-	"\tcompleted\x18\x04 \x01(\bR\tcompleted\".\n" +
-	"\fTaskResponse\x12\x1e\n" +
-	"\x04task\x18\x01 \x01(\v2\n" +
-	".task.TaskR\x04task\"4\n" +
-	"\x10TaskListResponse\x12 \n" +
-	"\x05tasks\x18\x01 \x03(\v2\n" +
-	".task.TaskR\x05tasks\".\n" +
+	"\tcompleted\x18\x04 \x01(\bR\tcompleted\"4\n" +
+	"\fTaskResponse\x12$\n" +
+	"\x04task\x18\x01 \x01(\v2\x10.apigateway.TaskR\x04task\":\n" +
+	"\x10TaskListResponse\x12&\n" +
+	"\x05tasks\x18\x01 \x03(\v2\x10.apigateway.TaskR\x05tasks\".\n" +
 	"\x12DeleteTaskResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2\xe5\x02\n" +
-	"\vTaskService\x12O\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage2\xde\x04\n" +
+	"\x11ApiGatewayService\x12d\n" +
+	"\fRegisterUser\x12\x1b.apigateway.RegisterRequest\x1a\x18.apigateway.AuthResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/users/register\x12[\n" +
+	"\tLoginUser\x12\x18.apigateway.LoginRequest\x1a\x18.apigateway.AuthResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/users/login\x12[\n" +
 	"\n" +
-	"CreateTask\x12\x17.task.CreateTaskRequest\x1a\x12.task.TaskResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/tasks\x12N\n" +
-	"\tListTasks\x12\x16.task.ListTasksRequest\x1a\x16.task.TaskListResponse\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/v1/tasks\x12\\\n" +
-	"\fCompleteTask\x12\x19.task.CompleteTaskRequest\x1a\x12.task.TaskResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/tasks/complete\x12W\n" +
+	"CreateTask\x12\x1d.apigateway.CreateTaskRequest\x1a\x18.apigateway.TaskResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/tasks\x12Z\n" +
+	"\tListTasks\x12\x1c.apigateway.ListTasksRequest\x1a\x1c.apigateway.TaskListResponse\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/v1/tasks\x12h\n" +
+	"\fCompleteTask\x12\x1f.apigateway.CompleteTaskRequest\x1a\x18.apigateway.TaskResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/tasks/complete\x12c\n" +
 	"\n" +
-	"DeleteTask\x12\x17.task.DeleteTaskRequest\x1a\x18.task.DeleteTaskResponse\"\x16\x82\xd3\xe4\x93\x02\x10*\x0e/v1/tasks/{id}B\x14Z\x12task-service/protob\x06proto3"
+	"DeleteTask\x12\x1d.apigateway.DeleteTaskRequest\x1a\x1e.apigateway.DeleteTaskResponse\"\x16\x82\xd3\xe4\x93\x02\x10*\x0e/v1/tasks/{id}B\x1aZ\x18apigateway-service/protob\x06proto3"
 
 var (
-	file_common_proto_task_proto_rawDescOnce sync.Once
-	file_common_proto_task_proto_rawDescData []byte
+	file_common_proto_apigateway_proto_rawDescOnce sync.Once
+	file_common_proto_apigateway_proto_rawDescData []byte
 )
 
-func file_common_proto_task_proto_rawDescGZIP() []byte {
-	file_common_proto_task_proto_rawDescOnce.Do(func() {
-		file_common_proto_task_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_common_proto_task_proto_rawDesc), len(file_common_proto_task_proto_rawDesc)))
+func file_common_proto_apigateway_proto_rawDescGZIP() []byte {
+	file_common_proto_apigateway_proto_rawDescOnce.Do(func() {
+		file_common_proto_apigateway_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_common_proto_apigateway_proto_rawDesc), len(file_common_proto_apigateway_proto_rawDesc)))
 	})
-	return file_common_proto_task_proto_rawDescData
+	return file_common_proto_apigateway_proto_rawDescData
 }
 
-var file_common_proto_task_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
-var file_common_proto_task_proto_goTypes = []any{
-	(*CreateTaskRequest)(nil),   // 0: task.CreateTaskRequest
-	(*ListTasksRequest)(nil),    // 1: task.ListTasksRequest
-	(*CompleteTaskRequest)(nil), // 2: task.CompleteTaskRequest
-	(*DeleteTaskRequest)(nil),   // 3: task.DeleteTaskRequest
-	(*Task)(nil),                // 4: task.Task
-	(*TaskResponse)(nil),        // 5: task.TaskResponse
-	(*TaskListResponse)(nil),    // 6: task.TaskListResponse
-	(*DeleteTaskResponse)(nil),  // 7: task.DeleteTaskResponse
+var file_common_proto_apigateway_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_common_proto_apigateway_proto_goTypes = []any{
+	(*RegisterRequest)(nil),     // 0: apigateway.RegisterRequest
+	(*LoginRequest)(nil),        // 1: apigateway.LoginRequest
+	(*AuthResponse)(nil),        // 2: apigateway.AuthResponse
+	(*CreateTaskRequest)(nil),   // 3: apigateway.CreateTaskRequest
+	(*ListTasksRequest)(nil),    // 4: apigateway.ListTasksRequest
+	(*CompleteTaskRequest)(nil), // 5: apigateway.CompleteTaskRequest
+	(*DeleteTaskRequest)(nil),   // 6: apigateway.DeleteTaskRequest
+	(*Task)(nil),                // 7: apigateway.Task
+	(*TaskResponse)(nil),        // 8: apigateway.TaskResponse
+	(*TaskListResponse)(nil),    // 9: apigateway.TaskListResponse
+	(*DeleteTaskResponse)(nil),  // 10: apigateway.DeleteTaskResponse
 }
-var file_common_proto_task_proto_depIdxs = []int32{
-	4, // 0: task.TaskResponse.task:type_name -> task.Task
-	4, // 1: task.TaskListResponse.tasks:type_name -> task.Task
-	0, // 2: task.TaskService.CreateTask:input_type -> task.CreateTaskRequest
-	1, // 3: task.TaskService.ListTasks:input_type -> task.ListTasksRequest
-	2, // 4: task.TaskService.CompleteTask:input_type -> task.CompleteTaskRequest
-	3, // 5: task.TaskService.DeleteTask:input_type -> task.DeleteTaskRequest
-	5, // 6: task.TaskService.CreateTask:output_type -> task.TaskResponse
-	6, // 7: task.TaskService.ListTasks:output_type -> task.TaskListResponse
-	5, // 8: task.TaskService.CompleteTask:output_type -> task.TaskResponse
-	7, // 9: task.TaskService.DeleteTask:output_type -> task.DeleteTaskResponse
-	6, // [6:10] is the sub-list for method output_type
-	2, // [2:6] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+var file_common_proto_apigateway_proto_depIdxs = []int32{
+	7,  // 0: apigateway.TaskResponse.task:type_name -> apigateway.Task
+	7,  // 1: apigateway.TaskListResponse.tasks:type_name -> apigateway.Task
+	0,  // 2: apigateway.ApiGatewayService.RegisterUser:input_type -> apigateway.RegisterRequest
+	1,  // 3: apigateway.ApiGatewayService.LoginUser:input_type -> apigateway.LoginRequest
+	3,  // 4: apigateway.ApiGatewayService.CreateTask:input_type -> apigateway.CreateTaskRequest
+	4,  // 5: apigateway.ApiGatewayService.ListTasks:input_type -> apigateway.ListTasksRequest
+	5,  // 6: apigateway.ApiGatewayService.CompleteTask:input_type -> apigateway.CompleteTaskRequest
+	6,  // 7: apigateway.ApiGatewayService.DeleteTask:input_type -> apigateway.DeleteTaskRequest
+	2,  // 8: apigateway.ApiGatewayService.RegisterUser:output_type -> apigateway.AuthResponse
+	2,  // 9: apigateway.ApiGatewayService.LoginUser:output_type -> apigateway.AuthResponse
+	8,  // 10: apigateway.ApiGatewayService.CreateTask:output_type -> apigateway.TaskResponse
+	9,  // 11: apigateway.ApiGatewayService.ListTasks:output_type -> apigateway.TaskListResponse
+	8,  // 12: apigateway.ApiGatewayService.CompleteTask:output_type -> apigateway.TaskResponse
+	10, // 13: apigateway.ApiGatewayService.DeleteTask:output_type -> apigateway.DeleteTaskResponse
+	8,  // [8:14] is the sub-list for method output_type
+	2,  // [2:8] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
-func init() { file_common_proto_task_proto_init() }
-func file_common_proto_task_proto_init() {
-	if File_common_proto_task_proto != nil {
+func init() { file_common_proto_apigateway_proto_init() }
+func file_common_proto_apigateway_proto_init() {
+	if File_common_proto_apigateway_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_common_proto_task_proto_rawDesc), len(file_common_proto_task_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_common_proto_apigateway_proto_rawDesc), len(file_common_proto_apigateway_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
-		GoTypes:           file_common_proto_task_proto_goTypes,
-		DependencyIndexes: file_common_proto_task_proto_depIdxs,
-		MessageInfos:      file_common_proto_task_proto_msgTypes,
+		GoTypes:           file_common_proto_apigateway_proto_goTypes,
+		DependencyIndexes: file_common_proto_apigateway_proto_depIdxs,
+		MessageInfos:      file_common_proto_apigateway_proto_msgTypes,
 	}.Build()
-	File_common_proto_task_proto = out.File
-	file_common_proto_task_proto_goTypes = nil
-	file_common_proto_task_proto_depIdxs = nil
+	File_common_proto_apigateway_proto = out.File
+	file_common_proto_apigateway_proto_goTypes = nil
+	file_common_proto_apigateway_proto_depIdxs = nil
 }

@@ -1,13 +1,27 @@
 syntax = "proto3";
 
-package task;
+package apigateway;
 
 import "google/api/annotations.proto";
 
-option go_package = "task-service/proto";
+option go_package = "apigateway-service/proto";
 
-service TaskService {
-        //task actions
+service ApiGatewayService {
+    //user actions
+    rpc RegisterUser(RegisterRequest) returns (AuthResponse) {
+        option (google.api.http) = {
+            post: "/v1/users/register"
+            body: "*"
+        };
+    }
+    rpc LoginUser(LoginRequest) returns (AuthResponse) {
+        option (google.api.http) = {
+            post: "/v1/users/login"
+            body: "*"
+        };
+    }
+
+    //task actions
     rpc CreateTask(CreateTaskRequest) returns (TaskResponse) {
         option (google.api.http) = {
             post: "/v1/tasks"
@@ -34,6 +48,20 @@ service TaskService {
         };
     };}
 
+    //user requests - responses
+message RegisterRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message LoginRequest {
+    string username = 1;
+    string password = 2;
+}
+
+message AuthResponse {
+    string token = 1;
+}
 
 //task requests
 message CreateTaskRequest {

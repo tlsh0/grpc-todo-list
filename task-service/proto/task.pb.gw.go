@@ -63,7 +63,7 @@ var filter_TaskService_ListTasks_0 = &utilities.DoubleArray{Encoding: map[string
 
 func request_TaskService_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, client TaskServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq UserRequest
+		protoReq ListTasksRequest
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
@@ -79,7 +79,7 @@ func request_TaskService_ListTasks_0(ctx context.Context, marshaler runtime.Mars
 
 func local_request_TaskService_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, server TaskServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq UserRequest
+		protoReq ListTasksRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := req.ParseForm(); err != nil {
@@ -94,7 +94,7 @@ func local_request_TaskService_ListTasks_0(ctx context.Context, marshaler runtim
 
 func request_TaskService_CompleteTask_0(ctx context.Context, marshaler runtime.Marshaler, client TaskServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq TaskActionRequest
+		protoReq CompleteTaskRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -106,7 +106,7 @@ func request_TaskService_CompleteTask_0(ctx context.Context, marshaler runtime.M
 
 func local_request_TaskService_CompleteTask_0(ctx context.Context, marshaler runtime.Marshaler, server TaskServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq TaskActionRequest
+		protoReq CompleteTaskRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -120,7 +120,7 @@ var filter_TaskService_DeleteTask_0 = &utilities.DoubleArray{Encoding: map[strin
 
 func request_TaskService_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, client TaskServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq TaskActionRequest
+		protoReq DeleteTaskRequest
 		metadata runtime.ServerMetadata
 		err      error
 	)
@@ -145,7 +145,7 @@ func request_TaskService_DeleteTask_0(ctx context.Context, marshaler runtime.Mar
 
 func local_request_TaskService_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, server TaskServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq TaskActionRequest
+		protoReq DeleteTaskRequest
 		metadata runtime.ServerMetadata
 		err      error
 	)

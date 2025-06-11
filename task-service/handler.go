@@ -66,7 +66,7 @@ func (s *TaskServiceServer) CreateTask(ctx context.Context, req *proto.CreateTas
 	}, nil
 }
 
-func (s *TaskServiceServer) ListTasks(ctx context.Context, req *proto.UserRequest) (*proto.TaskListResponse, error) {
+func (s *TaskServiceServer) ListTasks(ctx context.Context, req *proto.ListTasksRequest) (*proto.TaskListResponse, error) {
 	username, err := parseJWT(req.Token)
 	if err != nil {
 		log.Println("JWT parse error:", err)
@@ -93,7 +93,7 @@ func (s *TaskServiceServer) ListTasks(ctx context.Context, req *proto.UserReques
 	return &proto.TaskListResponse{Tasks: protoTasks}, nil
 }
 
-func (s *TaskServiceServer) CompleteTask(ctx context.Context, req *proto.TaskActionRequest) (*proto.TaskResponse, error) {
+func (s *TaskServiceServer) CompleteTask(ctx context.Context, req *proto.CompleteTaskRequest) (*proto.TaskResponse, error) {
 	username, err := parseJWT(req.Token)
 	if err != nil {
 		log.Println("JWT parse error:", err)
@@ -125,7 +125,7 @@ func (s *TaskServiceServer) CompleteTask(ctx context.Context, req *proto.TaskAct
 	}, nil
 }
 
-func (s *TaskServiceServer) DeleteTask(ctx context.Context, req *proto.TaskActionRequest) (*proto.DeleteTaskResponse, error) {
+func (s *TaskServiceServer) DeleteTask(ctx context.Context, req *proto.DeleteTaskRequest) (*proto.DeleteTaskResponse, error) {
 	username, err := parseJWT(req.Token)
 	if err != nil {
 		log.Println("JWT parse error:", err)
