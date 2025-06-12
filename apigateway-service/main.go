@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"log"
-	"net"
 	"net/http"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
@@ -33,18 +32,19 @@ func main() {
 		TaskClient: taskpb.NewTaskServiceClient(taskConn),
 	}
 
-	grpcServer := grpc.NewServer()
-	proto.RegisterApiGatewayServiceServer(grpcServer, server)
-	// Example: Register the task service as well, if needed
-	// taskpb.RegisterTaskServiceServer(grpcServer, server) // Uncomment and implement if ApiGatewayServer implements TaskServiceServer
+	// grpcServer := grpc.NewServer()
+	// proto.RegisterApiGatewayServiceServer(grpcServer, server)
+	// // Example: Register the task service as well, if needed
+	// // taskpb.RegisterTaskServiceServer(grpcServer, server) // Uncomment and implement if ApiGatewayServer implements TaskServiceServer
 
-	go func() {
-		lis, _ := net.Listen("tcp", ":50050")
-		log.Fatal(grpcServer.Serve(lis))
-	}()
+	// go func() {
+	// 	lis, _ := net.Listen("tcp", ":50050")
+	// 	log.Fatal(grpcServer.Serve(lis))
+	// }()
 
 	mux := runtime.NewServeMux()
 	proto.RegisterApiGatewayServiceHandlerServer(context.Background(), mux, server)
+	log.Println("Listening :8080...")
 	log.Fatal(http.ListenAndServe(":8080", mux))
 
 }

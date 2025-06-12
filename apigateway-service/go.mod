@@ -1,4 +1,4 @@
-module tlsh0/grpc-todo-list/apigateway-service
+module github.com/tlsh0/grpc-todo-list/apigateway-service
 
 go 1.24.2
 

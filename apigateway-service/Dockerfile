@@ -6,5 +6,5 @@ COPY . .
 
 RUN go build -o apigateway-service .
 
-EXPOSE 50050
+EXPOSE 8080
 CMD ["./apigateway-service"]

@@ -11,8 +11,8 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
-	proto1 "task-service/proto"
-	proto "user-service/proto"
+	proto1 "github.com/tlsh0/grpc-todo-list/task-service/proto"
+	proto "github.com/tlsh0/grpc-todo-list/user-service/proto"
 )
 
 // This is a compile-time assertion to ensure that this generated file

@@ -3,10 +3,9 @@ package main
 import (
 	"context"
 
+	"github.com/tlsh0/grpc-todo-list/apigateway-service/proto"
 	taskpb "github.com/tlsh0/grpc-todo-list/task-service/proto"
 	userpb "github.com/tlsh0/grpc-todo-list/user-service/proto"
-
-	"github.com/tlsh0/grpc-todo-list/apigateway-service/proto"
 )
 
 type ApiGatewayServer struct {

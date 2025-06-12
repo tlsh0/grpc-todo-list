@@ -39,7 +39,20 @@ services:
       - postgres
     ports:
       - "50052:50052"
-      - "8081:8081"
+
+  apigateway-service:
+    build: ./apigateway-service
+    # environment:
+    #   DB_HOST: postgres
+    #   DB_USER: postgres
+    #   DB_PASSWORD: password
+    #   DB_NAME: todo_db
+    #   DB_PORT: 5432
+    depends_on:
+      - task-service
+      - user-service
+    ports:
+      - "8080:8080"
 
 volumes:
   pgdata:

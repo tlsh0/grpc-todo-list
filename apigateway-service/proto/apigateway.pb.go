@@ -11,9 +11,9 @@ import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
-	proto1 "task-service/proto"
+	proto1 "github.com/tlsh0/grpc-todo-list/task-service/proto"
 	unsafe "unsafe"
-	proto "user-service/proto"
+	proto "github.com/tlsh0/grpc-todo-list/user-service/proto"
 )
 
 const (

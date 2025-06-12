@@ -13,8 +13,8 @@ import (
 	"errors"
 	"io"
 	"net/http"
-	proto_1 "task-service/proto"
-	proto_2 "user-service/proto"
+	proto_1 "github.com/tlsh0/grpc-todo-list/task-service/proto"
+	proto_2 "github.com/tlsh0/grpc-todo-list/user-service/proto"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
