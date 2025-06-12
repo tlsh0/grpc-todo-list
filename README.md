@@ -62,17 +62,23 @@ request:
 }
 ```
 response:
+```
 {
     "task":{}
 }
+```
 
 DELETE /v1/tasks/{id}
 request:
+```
 {
     "id":"",
     "token":""
 }
+```
 response:
+```
 {
     "message":""
 }
+```
