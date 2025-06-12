@@ -4,7 +4,6 @@ go 1.24.2
 
 require (
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.26.3
-	github.com/tlsh0/grpc-todo-list/apigateway-service v0.0.0-20250612082832-a812085d308f
 	github.com/tlsh0/grpc-todo-list/task-service v0.0.0-20250612082832-a812085d308f
 	github.com/tlsh0/grpc-todo-list/user-service v0.0.0-20250612082832-a812085d308f
 	google.golang.org/genproto/googleapis/api v0.0.0-20250603155806-513f23925822

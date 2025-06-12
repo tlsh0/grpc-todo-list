@@ -130,6 +130,7 @@ type CompleteTaskRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Token         string                 `protobuf:"bytes,2,opt,name=token,proto3" json:"token,omitempty"`
+	
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
