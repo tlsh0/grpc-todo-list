@@ -13,6 +13,8 @@ import (
 	"errors"
 	"io"
 	"net/http"
+	proto_1 "task-service/proto"
+	proto_2 "user-service/proto"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/utilities"
@@ -37,7 +39,7 @@ var (
 
 func request_ApiGatewayService_RegisterUser_0(ctx context.Context, marshaler runtime.Marshaler, client ApiGatewayServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq RegisterRequest
+		protoReq proto_2.RegisterRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -49,7 +51,7 @@ func request_ApiGatewayService_RegisterUser_0(ctx context.Context, marshaler run
 
 func local_request_ApiGatewayService_RegisterUser_0(ctx context.Context, marshaler runtime.Marshaler, server ApiGatewayServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq RegisterRequest
+		protoReq proto_2.RegisterRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -61,7 +63,7 @@ func local_request_ApiGatewayService_RegisterUser_0(ctx context.Context, marshal
 
 func request_ApiGatewayService_LoginUser_0(ctx context.Context, marshaler runtime.Marshaler, client ApiGatewayServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq LoginRequest
+		protoReq proto_2.LoginRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -73,7 +75,7 @@ func request_ApiGatewayService_LoginUser_0(ctx context.Context, marshaler runtim
 
 func local_request_ApiGatewayService_LoginUser_0(ctx context.Context, marshaler runtime.Marshaler, server ApiGatewayServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq LoginRequest
+		protoReq proto_2.LoginRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -85,7 +87,7 @@ func local_request_ApiGatewayService_LoginUser_0(ctx context.Context, marshaler 
 
 func request_ApiGatewayService_CreateTask_0(ctx context.Context, marshaler runtime.Marshaler, client ApiGatewayServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CreateTaskRequest
+		protoReq proto_1.CreateTaskRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -97,7 +99,7 @@ func request_ApiGatewayService_CreateTask_0(ctx context.Context, marshaler runti
 
 func local_request_ApiGatewayService_CreateTask_0(ctx context.Context, marshaler runtime.Marshaler, server ApiGatewayServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CreateTaskRequest
+		protoReq proto_1.CreateTaskRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -111,7 +113,7 @@ var filter_ApiGatewayService_ListTasks_0 = &utilities.DoubleArray{Encoding: map[
 
 func request_ApiGatewayService_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, client ApiGatewayServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq ListTasksRequest
+		protoReq proto_1.ListTasksRequest
 		metadata runtime.ServerMetadata
 	)
 	io.Copy(io.Discard, req.Body)
@@ -127,7 +129,7 @@ func request_ApiGatewayService_ListTasks_0(ctx context.Context, marshaler runtim
 
 func local_request_ApiGatewayService_ListTasks_0(ctx context.Context, marshaler runtime.Marshaler, server ApiGatewayServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq ListTasksRequest
+		protoReq proto_1.ListTasksRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := req.ParseForm(); err != nil {
@@ -142,7 +144,7 @@ func local_request_ApiGatewayService_ListTasks_0(ctx context.Context, marshaler 
 
 func request_ApiGatewayService_CompleteTask_0(ctx context.Context, marshaler runtime.Marshaler, client ApiGatewayServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CompleteTaskRequest
+		protoReq proto_1.CompleteTaskRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -154,7 +156,7 @@ func request_ApiGatewayService_CompleteTask_0(ctx context.Context, marshaler run
 
 func local_request_ApiGatewayService_CompleteTask_0(ctx context.Context, marshaler runtime.Marshaler, server ApiGatewayServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq CompleteTaskRequest
+		protoReq proto_1.CompleteTaskRequest
 		metadata runtime.ServerMetadata
 	)
 	if err := marshaler.NewDecoder(req.Body).Decode(&protoReq); err != nil && !errors.Is(err, io.EOF) {
@@ -168,7 +170,7 @@ var filter_ApiGatewayService_DeleteTask_0 = &utilities.DoubleArray{Encoding: map
 
 func request_ApiGatewayService_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, client ApiGatewayServiceClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq DeleteTaskRequest
+		protoReq proto_1.DeleteTaskRequest
 		metadata runtime.ServerMetadata
 		err      error
 	)
@@ -193,7 +195,7 @@ func request_ApiGatewayService_DeleteTask_0(ctx context.Context, marshaler runti
 
 func local_request_ApiGatewayService_DeleteTask_0(ctx context.Context, marshaler runtime.Marshaler, server ApiGatewayServiceServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var (
-		protoReq DeleteTaskRequest
+		protoReq proto_1.DeleteTaskRequest
 		metadata runtime.ServerMetadata
 		err      error
 	)

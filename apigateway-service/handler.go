@@ -3,9 +3,10 @@ package main
 import (
 	"context"
 
-	"github.com/tlsh0/grpc-todo-list/apigateway-service/proto"
 	taskpb "github.com/tlsh0/grpc-todo-list/task-service/proto"
 	userpb "github.com/tlsh0/grpc-todo-list/user-service/proto"
+
+	"github.com/tlsh0/grpc-todo-list/apigateway-service/proto"
 )
 
 type ApiGatewayServer struct {
@@ -14,25 +15,21 @@ type ApiGatewayServer struct {
 	TaskClient taskpb.TaskServiceClient
 }
 
-func (s *ApiGatewayServer) RegisterUser(ctx context.Context, req *proto.RegisterRequest) (*proto.AuthResponse, error) {
-	userReq := &userpb.RegisterRequest{
-		Username: req.Username,
-		Password: req.Password,
-	}
-	return s.UserClient.Register(ctx, userReq)
+func (s *ApiGatewayServer) RegisterUser(ctx context.Context, req *userpb.RegisterRequest) (*userpb.AuthResponse, error) {
+	return s.UserClient.Register(ctx, req)
 }
-func (s *ApiGatewayServer) LoginUser(context.Context, *proto.LoginRequest) (*proto.AuthResponse, error) {
-	return nil, nil
+func (s *ApiGatewayServer) LoginUser(ctx context.Context, req *userpb.LoginRequest) (*userpb.AuthResponse, error) {
+	return s.UserClient.Login(ctx, req)
 }
-func (s *ApiGatewayServer) CreateTask(context.Context, *proto.CreateTaskRequest) (*proto.TaskResponse, error) {
-	return nil, nil
+func (s *ApiGatewayServer) CreateTask(ctx context.Context, req *taskpb.CreateTaskRequest) (*taskpb.TaskResponse, error) {
+	return s.TaskClient.CreateTask(ctx, req)
 }
-func (s *ApiGatewayServer) ListTasks(context.Context, *proto.ListTasksRequest) (*proto.TaskListResponse, error) {
-	return nil, nil
+func (s *ApiGatewayServer) ListTasks(ctx context.Context, req *taskpb.ListTasksRequest) (*taskpb.TaskListResponse, error) {
+	return s.TaskClient.ListTasks(ctx, req)
 }
-func (s *ApiGatewayServer) CompleteTask(context.Context, *proto.CompleteTaskRequest) (*proto.TaskResponse, error) {
-	return nil, nil
+func (s *ApiGatewayServer) CompleteTask(ctx context.Context, req *taskpb.CompleteTaskRequest) (*taskpb.TaskResponse, error) {
+	return s.TaskClient.CompleteTask(ctx, req)
 }
-func (s *ApiGatewayServer) DeleteTask(context.Context, *proto.DeleteTaskRequest) (*proto.DeleteTaskResponse, error) {
-	return nil, nil
+func (s *ApiGatewayServer) DeleteTask(ctx context.Context, req *taskpb.DeleteTaskRequest) (*taskpb.DeleteTaskResponse, error) {
+	return s.TaskClient.DeleteTask(ctx, req)
 }

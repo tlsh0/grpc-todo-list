@@ -3,18 +3,20 @@ syntax = "proto3";
 package apigateway;
 
 import "google/api/annotations.proto";
+import "common/proto/user.proto";
+import "common/proto/task.proto";
 
 option go_package = "apigateway-service/proto";
 
 service ApiGatewayService {
     //user actions
-    rpc RegisterUser(RegisterRequest) returns (AuthResponse) {
+    rpc RegisterUser(user.RegisterRequest) returns (user.AuthResponse) {
         option (google.api.http) = {
             post: "/v1/users/register"
             body: "*"
         };
     }
-    rpc LoginUser(LoginRequest) returns (AuthResponse) {
+    rpc LoginUser(user.LoginRequest) returns (user.AuthResponse) {
         option (google.api.http) = {
             post: "/v1/users/login"
             body: "*"
@@ -22,84 +24,28 @@ service ApiGatewayService {
     }
 
     //task actions
-    rpc CreateTask(CreateTaskRequest) returns (TaskResponse) {
+    rpc CreateTask(task.CreateTaskRequest) returns (task.TaskResponse) {
         option (google.api.http) = {
             post: "/v1/tasks"
             body: "*"
         };
     };
 
-    rpc ListTasks(ListTasksRequest) returns (TaskListResponse) {
+    rpc ListTasks(task.ListTasksRequest) returns (task.TaskListResponse) {
         option (google.api.http) = {
             get: "/v1/tasks"
         };
     };
 
-    rpc CompleteTask(CompleteTaskRequest) returns (TaskResponse) {
+    rpc CompleteTask(task.CompleteTaskRequest) returns (task.TaskResponse) {
         option (google.api.http) = {
             post: "/v1/tasks/complete"
             body: "*"
         };
     };
 
-    rpc DeleteTask(DeleteTaskRequest) returns (DeleteTaskResponse) {
+    rpc DeleteTask(task.DeleteTaskRequest) returns (task.DeleteTaskResponse) {
         option (google.api.http) = {
             delete: "/v1/tasks/{id}"
         };
     };}
-
-    //user requests - responses
-message RegisterRequest {
-    string username = 1;
-    string password = 2;
-}
-
-message LoginRequest {
-    string username = 1;
-    string password = 2;
-}
-
-message AuthResponse {
-    string token = 1;
-}
-
-//task requests
-message CreateTaskRequest {
-    string title = 1;
-    string description = 2;
-    string token =3; //JWT token
-}
-
-message ListTasksRequest {
-    string token = 1; //JWT token
-}
-
-message CompleteTaskRequest {
-    int32 id = 1;
-    string token = 2;
-}
-
-message DeleteTaskRequest {
-    int32 id = 1;
-    string token = 2;
-}
-
-//task responses
-message Task {
-    int32 id = 1;
-    string title = 2;
-    string description = 3;
-    bool completed = 4;
-}
-
-message TaskResponse {
-    Task task = 1;
-}
-
-message TaskListResponse {
-    repeated Task tasks = 1;
-}
-
-message DeleteTaskResponse {
-    string message = 1;
-}

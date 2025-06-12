@@ -11,6 +11,8 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	proto1 "task-service/proto"
+	proto "user-service/proto"
 )
 
 // This is a compile-time assertion to ensure that this generated file
@@ -32,13 +34,13 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ApiGatewayServiceClient interface {
 	// user actions
-	RegisterUser(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*AuthResponse, error)
-	LoginUser(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*AuthResponse, error)
+	RegisterUser(ctx context.Context, in *proto.RegisterRequest, opts ...grpc.CallOption) (*proto.AuthResponse, error)
+	LoginUser(ctx context.Context, in *proto.LoginRequest, opts ...grpc.CallOption) (*proto.AuthResponse, error)
 	// task actions
-	CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*TaskResponse, error)
-	ListTasks(ctx context.Context, in *ListTasksRequest, opts ...grpc.CallOption) (*TaskListResponse, error)
-	CompleteTask(ctx context.Context, in *CompleteTaskRequest, opts ...grpc.CallOption) (*TaskResponse, error)
-	DeleteTask(ctx context.Context, in *DeleteTaskRequest, opts ...grpc.CallOption) (*DeleteTaskResponse, error)
+	CreateTask(ctx context.Context, in *proto1.CreateTaskRequest, opts ...grpc.CallOption) (*proto1.TaskResponse, error)
+	ListTasks(ctx context.Context, in *proto1.ListTasksRequest, opts ...grpc.CallOption) (*proto1.TaskListResponse, error)
+	CompleteTask(ctx context.Context, in *proto1.CompleteTaskRequest, opts ...grpc.CallOption) (*proto1.TaskResponse, error)
+	DeleteTask(ctx context.Context, in *proto1.DeleteTaskRequest, opts ...grpc.CallOption) (*proto1.DeleteTaskResponse, error)
 }
 
 type apiGatewayServiceClient struct {
@@ -49,9 +51,9 @@ func NewApiGatewayServiceClient(cc grpc.ClientConnInterface) ApiGatewayServiceCl
 	return &apiGatewayServiceClient{cc}
 }
 
-func (c *apiGatewayServiceClient) RegisterUser(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+func (c *apiGatewayServiceClient) RegisterUser(ctx context.Context, in *proto.RegisterRequest, opts ...grpc.CallOption) (*proto.AuthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AuthResponse)
+	out := new(proto.AuthResponse)
 	err := c.cc.Invoke(ctx, ApiGatewayService_RegisterUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -59,9 +61,9 @@ func (c *apiGatewayServiceClient) RegisterUser(ctx context.Context, in *Register
 	return out, nil
 }
 
-func (c *apiGatewayServiceClient) LoginUser(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*AuthResponse, error) {
+func (c *apiGatewayServiceClient) LoginUser(ctx context.Context, in *proto.LoginRequest, opts ...grpc.CallOption) (*proto.AuthResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(AuthResponse)
+	out := new(proto.AuthResponse)
 	err := c.cc.Invoke(ctx, ApiGatewayService_LoginUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -69,9 +71,9 @@ func (c *apiGatewayServiceClient) LoginUser(ctx context.Context, in *LoginReques
 	return out, nil
 }
 
-func (c *apiGatewayServiceClient) CreateTask(ctx context.Context, in *CreateTaskRequest, opts ...grpc.CallOption) (*TaskResponse, error) {
+func (c *apiGatewayServiceClient) CreateTask(ctx context.Context, in *proto1.CreateTaskRequest, opts ...grpc.CallOption) (*proto1.TaskResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TaskResponse)
+	out := new(proto1.TaskResponse)
 	err := c.cc.Invoke(ctx, ApiGatewayService_CreateTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -79,9 +81,9 @@ func (c *apiGatewayServiceClient) CreateTask(ctx context.Context, in *CreateTask
 	return out, nil
 }
 
-func (c *apiGatewayServiceClient) ListTasks(ctx context.Context, in *ListTasksRequest, opts ...grpc.CallOption) (*TaskListResponse, error) {
+func (c *apiGatewayServiceClient) ListTasks(ctx context.Context, in *proto1.ListTasksRequest, opts ...grpc.CallOption) (*proto1.TaskListResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TaskListResponse)
+	out := new(proto1.TaskListResponse)
 	err := c.cc.Invoke(ctx, ApiGatewayService_ListTasks_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -89,9 +91,9 @@ func (c *apiGatewayServiceClient) ListTasks(ctx context.Context, in *ListTasksRe
 	return out, nil
 }
 
-func (c *apiGatewayServiceClient) CompleteTask(ctx context.Context, in *CompleteTaskRequest, opts ...grpc.CallOption) (*TaskResponse, error) {
+func (c *apiGatewayServiceClient) CompleteTask(ctx context.Context, in *proto1.CompleteTaskRequest, opts ...grpc.CallOption) (*proto1.TaskResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(TaskResponse)
+	out := new(proto1.TaskResponse)
 	err := c.cc.Invoke(ctx, ApiGatewayService_CompleteTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -99,9 +101,9 @@ func (c *apiGatewayServiceClient) CompleteTask(ctx context.Context, in *Complete
 	return out, nil
 }
 
-func (c *apiGatewayServiceClient) DeleteTask(ctx context.Context, in *DeleteTaskRequest, opts ...grpc.CallOption) (*DeleteTaskResponse, error) {
+func (c *apiGatewayServiceClient) DeleteTask(ctx context.Context, in *proto1.DeleteTaskRequest, opts ...grpc.CallOption) (*proto1.DeleteTaskResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(DeleteTaskResponse)
+	out := new(proto1.DeleteTaskResponse)
 	err := c.cc.Invoke(ctx, ApiGatewayService_DeleteTask_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -114,13 +116,13 @@ func (c *apiGatewayServiceClient) DeleteTask(ctx context.Context, in *DeleteTask
 // for forward compatibility.
 type ApiGatewayServiceServer interface {
 	// user actions
-	RegisterUser(context.Context, *RegisterRequest) (*AuthResponse, error)
-	LoginUser(context.Context, *LoginRequest) (*AuthResponse, error)
+	RegisterUser(context.Context, *proto.RegisterRequest) (*proto.AuthResponse, error)
+	LoginUser(context.Context, *proto.LoginRequest) (*proto.AuthResponse, error)
 	// task actions
-	CreateTask(context.Context, *CreateTaskRequest) (*TaskResponse, error)
-	ListTasks(context.Context, *ListTasksRequest) (*TaskListResponse, error)
-	CompleteTask(context.Context, *CompleteTaskRequest) (*TaskResponse, error)
-	DeleteTask(context.Context, *DeleteTaskRequest) (*DeleteTaskResponse, error)
+	CreateTask(context.Context, *proto1.CreateTaskRequest) (*proto1.TaskResponse, error)
+	ListTasks(context.Context, *proto1.ListTasksRequest) (*proto1.TaskListResponse, error)
+	CompleteTask(context.Context, *proto1.CompleteTaskRequest) (*proto1.TaskResponse, error)
+	DeleteTask(context.Context, *proto1.DeleteTaskRequest) (*proto1.DeleteTaskResponse, error)
 	mustEmbedUnimplementedApiGatewayServiceServer()
 }
 
@@ -131,22 +133,22 @@ type ApiGatewayServiceServer interface {
 // pointer dereference when methods are called.
 type UnimplementedApiGatewayServiceServer struct{}
 
-func (UnimplementedApiGatewayServiceServer) RegisterUser(context.Context, *RegisterRequest) (*AuthResponse, error) {
+func (UnimplementedApiGatewayServiceServer) RegisterUser(context.Context, *proto.RegisterRequest) (*proto.AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RegisterUser not implemented")
 }
-func (UnimplementedApiGatewayServiceServer) LoginUser(context.Context, *LoginRequest) (*AuthResponse, error) {
+func (UnimplementedApiGatewayServiceServer) LoginUser(context.Context, *proto.LoginRequest) (*proto.AuthResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method LoginUser not implemented")
 }
-func (UnimplementedApiGatewayServiceServer) CreateTask(context.Context, *CreateTaskRequest) (*TaskResponse, error) {
+func (UnimplementedApiGatewayServiceServer) CreateTask(context.Context, *proto1.CreateTaskRequest) (*proto1.TaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateTask not implemented")
 }
-func (UnimplementedApiGatewayServiceServer) ListTasks(context.Context, *ListTasksRequest) (*TaskListResponse, error) {
+func (UnimplementedApiGatewayServiceServer) ListTasks(context.Context, *proto1.ListTasksRequest) (*proto1.TaskListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListTasks not implemented")
 }
-func (UnimplementedApiGatewayServiceServer) CompleteTask(context.Context, *CompleteTaskRequest) (*TaskResponse, error) {
+func (UnimplementedApiGatewayServiceServer) CompleteTask(context.Context, *proto1.CompleteTaskRequest) (*proto1.TaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CompleteTask not implemented")
 }
-func (UnimplementedApiGatewayServiceServer) DeleteTask(context.Context, *DeleteTaskRequest) (*DeleteTaskResponse, error) {
+func (UnimplementedApiGatewayServiceServer) DeleteTask(context.Context, *proto1.DeleteTaskRequest) (*proto1.DeleteTaskResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteTask not implemented")
 }
 func (UnimplementedApiGatewayServiceServer) mustEmbedUnimplementedApiGatewayServiceServer() {}
@@ -171,7 +173,7 @@ func RegisterApiGatewayServiceServer(s grpc.ServiceRegistrar, srv ApiGatewayServ
 }
 
 func _ApiGatewayService_RegisterUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(RegisterRequest)
+	in := new(proto.RegisterRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -183,13 +185,13 @@ func _ApiGatewayService_RegisterUser_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ApiGatewayService_RegisterUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiGatewayServiceServer).RegisterUser(ctx, req.(*RegisterRequest))
+		return srv.(ApiGatewayServiceServer).RegisterUser(ctx, req.(*proto.RegisterRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApiGatewayService_LoginUser_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(LoginRequest)
+	in := new(proto.LoginRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -201,13 +203,13 @@ func _ApiGatewayService_LoginUser_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ApiGatewayService_LoginUser_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiGatewayServiceServer).LoginUser(ctx, req.(*LoginRequest))
+		return srv.(ApiGatewayServiceServer).LoginUser(ctx, req.(*proto.LoginRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApiGatewayService_CreateTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CreateTaskRequest)
+	in := new(proto1.CreateTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -219,13 +221,13 @@ func _ApiGatewayService_CreateTask_Handler(srv interface{}, ctx context.Context,
 		FullMethod: ApiGatewayService_CreateTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiGatewayServiceServer).CreateTask(ctx, req.(*CreateTaskRequest))
+		return srv.(ApiGatewayServiceServer).CreateTask(ctx, req.(*proto1.CreateTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApiGatewayService_ListTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListTasksRequest)
+	in := new(proto1.ListTasksRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -237,13 +239,13 @@ func _ApiGatewayService_ListTasks_Handler(srv interface{}, ctx context.Context, 
 		FullMethod: ApiGatewayService_ListTasks_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiGatewayServiceServer).ListTasks(ctx, req.(*ListTasksRequest))
+		return srv.(ApiGatewayServiceServer).ListTasks(ctx, req.(*proto1.ListTasksRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApiGatewayService_CompleteTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CompleteTaskRequest)
+	in := new(proto1.CompleteTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -255,13 +257,13 @@ func _ApiGatewayService_CompleteTask_Handler(srv interface{}, ctx context.Contex
 		FullMethod: ApiGatewayService_CompleteTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiGatewayServiceServer).CompleteTask(ctx, req.(*CompleteTaskRequest))
+		return srv.(ApiGatewayServiceServer).CompleteTask(ctx, req.(*proto1.CompleteTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
 func _ApiGatewayService_DeleteTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(DeleteTaskRequest)
+	in := new(proto1.DeleteTaskRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
@@ -273,7 +275,7 @@ func _ApiGatewayService_DeleteTask_Handler(srv interface{}, ctx context.Context,
 		FullMethod: ApiGatewayService_DeleteTask_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ApiGatewayServiceServer).DeleteTask(ctx, req.(*DeleteTaskRequest))
+		return srv.(ApiGatewayServiceServer).DeleteTask(ctx, req.(*proto1.DeleteTaskRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
