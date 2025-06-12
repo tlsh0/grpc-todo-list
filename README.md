@@ -1,11 +1,11 @@
 # grpc-todo-list
-## /v1/users/register POST
-## /v1/users/login POST
+### /v1/users/register POST
+### /v1/users/login POST
 
-## /v1/tasks POST - CREATE TASK
-## /v1/tasks GET - LIST TASKS
-## /v1/tasks/completed POST - COMPLETE TASK
-## /v1/tasks/{id} DELETE - DELETE TASK
+### /v1/tasks POST - CREATE TASK
+### /v1/tasks GET - LIST TASKS
+### /v1/tasks/completed POST - COMPLETE TASK
+### /v1/tasks/{id} DELETE - DELETE TASK
 
 POST /v1/users/register
 POST /v1/users/login
