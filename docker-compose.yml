@@ -42,12 +42,6 @@ services:
 
   apigateway-service:
     build: ./apigateway-service
-    # environment:
-    #   DB_HOST: postgres
-    #   DB_USER: postgres
-    #   DB_PASSWORD: password
-    #   DB_NAME: todo_db
-    #   DB_PORT: 5432
     depends_on:
       - task-service
       - user-service

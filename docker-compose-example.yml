@@ -39,7 +39,14 @@ services:
       - postgres
     ports:
       - "50052:50052"
-      - "8081:8081"
+
+  apigateway-service:
+    build: ./apigateway-service
+    depends_on:
+      - task-service
+      - user-service
+    ports:
+      - "8080:8080"
 
 volumes:
   pgdata:
