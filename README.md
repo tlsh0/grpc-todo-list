@@ -1,14 +1,6 @@
 # grpc-todo-list
 ### /v1/users/register POST
 ### /v1/users/login POST
-
-### /v1/tasks POST - CREATE TASK
-### /v1/tasks GET - LIST TASKS
-### /v1/tasks/completed POST - COMPLETE TASK
-### /v1/tasks/{id} DELETE - DELETE TASK
-
-POST /v1/users/register
-POST /v1/users/login
 request:
 ```
 {
@@ -23,7 +15,7 @@ response:
 }
 ```
 
-POST   /v1/tasks        create task
+### /v1/tasks POST - CREATE TASK
 request:
 ```
 {
@@ -43,8 +35,7 @@ response:
     }
 }
 ```
-
-GET    /v1/tasks        list tasks
+### /v1/tasks GET - LIST TASKS
 request:
 ```
 {
@@ -59,8 +50,7 @@ response:
     ]
 }
 ```
-
-POST   /v1/tasks/complete
+### /v1/tasks/completed POST - COMPLETE TASK
 request:
 ```
 {
@@ -74,9 +64,7 @@ response:
     "task":{}
 }
 ```
-
-DELETE /v1/tasks/{id}
-request:
+### /v1/tasks/{id} DELETE - DELETE TASK
 ```
 {
     "id":"",
