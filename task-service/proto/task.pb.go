@@ -7,7 +7,6 @@
 package proto
 
 import (
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -436,7 +435,7 @@ var File_common_proto_task_proto protoreflect.FileDescriptor
 
 const file_common_proto_task_proto_rawDesc = "" +
 	"\n" +
-	"\x17common/proto/task.proto\x12\x04task\x1a\x1cgoogle/api/annotations.proto\"a\n" +
+	"\x17common/proto/task.proto\x12\x04task\"a\n" +
 	"\x11CreateTaskRequest\x12\x14\n" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12 \n" +
 	"\vdescription\x18\x02 \x01(\tR\vdescription\x12\x14\n" +
@@ -461,14 +460,14 @@ const file_common_proto_task_proto_rawDesc = "" +
 	"\x05tasks\x18\x01 \x03(\v2\n" +
 	".task.TaskR\x05tasks\".\n" +
 	"\x12DeleteTaskResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage2\xe5\x02\n" +
-	"\vTaskService\x12O\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage2\x85\x02\n" +
+	"\vTaskService\x129\n" +
 	"\n" +
-	"CreateTask\x12\x17.task.CreateTaskRequest\x1a\x12.task.TaskResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/tasks\x12N\n" +
-	"\tListTasks\x12\x16.task.ListTasksRequest\x1a\x16.task.TaskListResponse\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/v1/tasks\x12\\\n" +
-	"\fCompleteTask\x12\x19.task.CompleteTaskRequest\x1a\x12.task.TaskResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/tasks/complete\x12W\n" +
+	"CreateTask\x12\x17.task.CreateTaskRequest\x1a\x12.task.TaskResponse\x12;\n" +
+	"\tListTasks\x12\x16.task.ListTasksRequest\x1a\x16.task.TaskListResponse\x12=\n" +
+	"\fCompleteTask\x12\x19.task.CompleteTaskRequest\x1a\x12.task.TaskResponse\x12?\n" +
 	"\n" +
-	"DeleteTask\x12\x17.task.DeleteTaskRequest\x1a\x18.task.DeleteTaskResponse\"\x16\x82\xd3\xe4\x93\x02\x10*\x0e/v1/tasks/{id}B\x14Z\x12task-service/protob\x06proto3"
+	"DeleteTask\x12\x17.task.DeleteTaskRequest\x1a\x18.task.DeleteTaskResponseB\x14Z\x12task-service/protob\x06proto3"
 
 var (
 	file_common_proto_task_proto_rawDescOnce sync.Once

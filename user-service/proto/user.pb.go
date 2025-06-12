@@ -7,7 +7,6 @@
 package proto
 
 import (
-	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -174,7 +173,7 @@ var File_common_proto_user_proto protoreflect.FileDescriptor
 
 const file_common_proto_user_proto_rawDesc = "" +
 	"\n" +
-	"\x17common/proto/user.proto\x12\x04user\x1a\x1cgoogle/api/annotations.proto\"I\n" +
+	"\x17common/proto/user.proto\x12\x04user\"I\n" +
 	"\x0fRegisterRequest\x12\x1a\n" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"F\n" +
@@ -182,10 +181,10 @@ const file_common_proto_user_proto_rawDesc = "" +
 	"\busername\x18\x01 \x01(\tR\busername\x12\x1a\n" +
 	"\bpassword\x18\x02 \x01(\tR\bpassword\"$\n" +
 	"\fAuthResponse\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token2\xb0\x01\n" +
-	"\vUserService\x12T\n" +
-	"\bRegister\x12\x15.user.RegisterRequest\x1a\x12.user.AuthResponse\"\x1d\x82\xd3\xe4\x93\x02\x17:\x01*\"\x12/v1/users/register\x12K\n" +
-	"\x05Login\x12\x12.user.LoginRequest\x1a\x12.user.AuthResponse\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\"\x0f/v1/users/loginB\x14Z\x12user-service/protob\x06proto3"
+	"\x05token\x18\x01 \x01(\tR\x05token2u\n" +
+	"\vUserService\x125\n" +
+	"\bRegister\x12\x15.user.RegisterRequest\x1a\x12.user.AuthResponse\x12/\n" +
+	"\x05Login\x12\x12.user.LoginRequest\x1a\x12.user.AuthResponseB\x14Z\x12user-service/protob\x06proto3"
 
 var (
 	file_common_proto_user_proto_rawDescOnce sync.Once

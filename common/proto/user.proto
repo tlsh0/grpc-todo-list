@@ -2,24 +2,11 @@ syntax = "proto3";
 
 package user;
 
-import "google/api/annotations.proto";
-
 option go_package = "user-service/proto";
 
 service UserService {
-    rpc Register(RegisterRequest) returns (AuthResponse) {
-        option (google.api.http) = {
-            post: "/v1/users/register"
-            body: "*"
-        };
-
-    };
-    rpc Login(LoginRequest) returns (AuthResponse) {
-        option (google.api.http) = {
-            post: "/v1/users/login"
-            body: "*"
-        };
-    };
+    rpc Register(RegisterRequest) returns (AuthResponse);
+    rpc Login(LoginRequest) returns (AuthResponse);
 }
 
 message RegisterRequest {

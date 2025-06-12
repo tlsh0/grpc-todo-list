@@ -17,8 +17,16 @@ import (
 
 func main() {
 
-	userConn, _ := grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
-	taskConn, _ := grpc.NewClient("localhost:50052", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	userConn, err := grpc.NewClient("localhost:50051", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		log.Fatalf("failed to connect to user service: %v", err)
+	}
+	defer userConn.Close()
+	taskConn, err := grpc.NewClient("localhost:50052", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	if err != nil {
+		log.Fatalf("failed to connect to user service: %v", err)
+	}
+	defer userConn.Close()
 
 	server := &ApiGatewayServer{
 		UserClient: userpb.NewUserServiceClient(userConn),
@@ -27,6 +35,8 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 	proto.RegisterApiGatewayServiceServer(grpcServer, server)
+	// Example: Register the task service as well, if needed
+	// taskpb.RegisterTaskServiceServer(grpcServer, server) // Uncomment and implement if ApiGatewayServer implements TaskServiceServer
 
 	go func() {
 		lis, _ := net.Listen("tcp", ":50050")
